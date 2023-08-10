@@ -1,0 +1,164 @@
+:root {
+  /* primary colors */
+  --clr-primary-dark-cyan: hsl(158, 36%, 37%);
+  --clr-primary-darker-cyan: hsl(158, 36%, 20%);
+
+  --clr-primary-cream: hsl(30, 38%, 92%);
+
+  /* neutral colors */
+  --clr-neutral-very-dark-blue: hsl(212, 21%, 14%);
+  --clr-neutral-dark-grayish-blue: hsl(228, 12%, 48%);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+
+  /* font families */
+  --fm-montserrat: "Montserrat", sans-serif;
+  --fm-fraunces: "Fraunces", serif;
+
+  /* font weights */
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/* Css reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.7;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  min-height: 100%;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* My styling begins from here */
+
+body {
+  font-family: var(--fm-montserrat);
+  font-weight: 500;
+  color: var(--clr-neutral-dark-grayish-blue);
+  background-color: var(--clr-primary-cream);
+
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+main {
+  border-radius: 1rem;
+  overflow: hidden;
+  --product-padding: 1.5rem;
+  --product-spacing: 1rem;
+  max-width: 600px;
+  background-color: var(--clr-neutral-white);
+  display: grid;
+}
+
+@media (min-width: 600px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.content {
+  padding: var(--product-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--product-spacing);
+}
+.spacing {
+  display: grid;
+  gap: var(--product-spacing);
+}
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+h2 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 2rem;
+  font-family: var(--fm-fraunces);
+  color: var(--clr-neutral-very-dark-blue);
+  line-height: 1;
+}
+
+.discounted-price {
+  font-size: 2rem;
+  color: var(--clr-primary-dark-cyan);
+  font-family: var(--fm-fraunces);
+}
+
+.real-price {
+  text-decoration: line-through;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--clr-primary-dark-cyan);
+  color: var(--clr-neutral-white);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.4s;
+}
+
+button:is(:hover, :focus) {
+  background-color: var(--clr-primary-darker-cyan);
+}
